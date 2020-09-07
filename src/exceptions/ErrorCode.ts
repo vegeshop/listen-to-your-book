@@ -5,6 +5,7 @@ enum ErrorCode {
 	/* 400 - Bad Request */
 	INVALID_PARAMETERS = 0x0000,
 	INVALID_REQUEST_BODY = 0x0001,
+	FILETYPE_NOT_SUPPORTED = 0x0002,
 
 	/* 401 - Unauthenticated */
 	WRONG_API_TOKEN = 0x1000,
