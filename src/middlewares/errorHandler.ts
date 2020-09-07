@@ -1,14 +1,8 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import ApiError from '../exceptions/ApiError';
-import ApiServerFaultError from '../exceptions/ApiServerFaultError';
 import RequestContext from '../interfaces/RequestContext';
 
-export default function (
-	err: Error,
-	req: Request,
-	res: Response,
-	next: NextFunction
-) {
+export default function (err: Error, req: Request, res: Response): void {
 	const context = req.context;
 	if (context instanceof RequestContext) {
 		context.log(err);
@@ -16,7 +10,7 @@ export default function (
 
 	const statusCode = err instanceof ApiError ? err.statusCode : 500;
 	// set locals, only providing error in development
-	res.locals.message = statusCode + ' : ' + err.message;
+	res.locals.message = `${statusCode} : err.message`;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 	// render the error page
 	res.status(statusCode).render('error');

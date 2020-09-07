@@ -11,7 +11,7 @@ export default class RequestContext {
 		this.url = url;
 	}
 
-	public log(err?: Error): void {
+	public log(err: Error): void {
 		if (err instanceof ApiError)
 			logger.error(
 				`errname: ${err.name}, status: 0x${
@@ -26,7 +26,7 @@ export default class RequestContext {
 			);
 		else
 			logger.error(
-				`errname: ${err?.name}, message: ${err?.message}, method: ${this.method}, url: ${this.url}`
+				`errname: ${err.name}, message: ${err.message}, method: ${this.method}, url: ${this.url}`
 			);
 	}
 }

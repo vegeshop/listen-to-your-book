@@ -13,8 +13,8 @@ export default class App {
 	 * @ method bootstrap
 	 * @ static
 	 */
-	public static bootstrap(): App {
-		return new App();
+	public static bootstrap(): express.Application {
+		return new App().app;
 	}
 
 	constructor() {
@@ -47,10 +47,9 @@ export default class App {
 	}
 
 	private routes() {
-		this.app.get('/', (req: express.Request, res: express.Response) => {
-			res.status(200).render('index', { title: '책, 듣다' });
-		});
-		// this.app.use('/api', require('./api').api);
+		// eslint-disable-next-line
+		this.app.use('/', require('./routes').router);
+
 		// catch 404 and forward to error handler
 		this.app.use(nullPageHandler);
 	}

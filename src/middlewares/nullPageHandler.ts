@@ -6,7 +6,7 @@ export default (
 	req: express.Request,
 	res: express.Response,
 	next: express.NextFunction
-) => {
+): void => {
 	res.status(400);
 	next(new ApiError(404, ErrorCode.PAGE_NOT_FOUND, 'Page Not Found'));
 };

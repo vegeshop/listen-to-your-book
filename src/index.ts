@@ -2,14 +2,14 @@ import App from './App';
 import express from 'express';
 import logger from './util/logger';
 
-const http = require('http');
+// const http = require('http');
 
 const port = normalizePort(process.env.PORT || '3000');
-const app: express.Application = App.bootstrap().app;
-const index = http.createServer(app);
+const app: express.Application = App.bootstrap();
+// const index = http.createServer(app);
 
-index.listen(port);
-index.on('listening', onListening);
+const server = app.listen(port);
+server.on('listening', onListening);
 
 /**
  * Event listeners below.
@@ -21,8 +21,8 @@ function normalizePort(portStr: string) {
 }
 
 function onListening() {
-	const addr = index.address();
+	const addr = server.address();
 	const bind =
-		typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+		typeof addr === 'string' ? 'pipe ' + addr : `port ${addr!.port}`;
 	logger.info('API Server Listening on ' + bind);
 }
