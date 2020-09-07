@@ -5,7 +5,9 @@
 	"main": "index.ts",
 	"scripts": {
 		"test": "jest",
-		"start": "npx tsc && node dist/index.js"
+		"start": "ts-node src/index.ts",
+		"compile": "npx tsc && node dist/index.js",
+		"dev": "nodemon -x ts-node src/index.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -27,8 +29,10 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"moment-timezone": "^0.5.31",
+		"nodemon": "^2.0.4",
 		"path": "^0.12.7",
 		"pug": "^3.0.0",
+		"ts-node": "^9.0.0",
 		"winston": "^3.3.3",
 		"winston-daily-rotate-file": "^4.5.0"
 	},
