@@ -1,1 +1,1 @@
-web: npm compile
+web:ts-node/src/index.ts
