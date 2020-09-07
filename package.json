@@ -3,8 +3,11 @@
 	"version": "1.0.0",
 	"description": "do not read anymore, now listen to our books",
 	"main": "index.ts",
+	"engines": {
+		"node": "14.x"
+	},
 	"scripts": {
-		"test": "jest",
+		"test": "exit",
 		"start": "ts-node src/index.ts",
 		"compile": "npx tsc && node dist/index.js",
 		"dev": "nodemon -x ts-node src/index.ts"
