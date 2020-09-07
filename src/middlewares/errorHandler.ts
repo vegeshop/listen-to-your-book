@@ -14,12 +14,12 @@ export default function (
 		context.log(err);
 	}
 
+	const statusCode = err instanceof ApiError ? err.statusCode : 500;
 	// set locals, only providing error in development
-	res.locals.message = err.message;
+	res.locals.message = statusCode + ' : ' + err.message;
 	res.locals.error = req.app.get('env') === 'development' ? err : {};
 	// render the error page
-	res.status(err instanceof ApiError ? err.statusCode : 500);
-	res.render('error');
+	res.status(statusCode).render('error');
 
 	// if (err instanceof ApiError) {
 	// 	res.status(err.statusCode).json({

@@ -48,7 +48,7 @@ export default class App {
 
 	private routes() {
 		this.app.get('/', (req: express.Request, res: express.Response) => {
-			res.render('index', { title: '책, 듣다' });
+			res.status(200).render('index', { title: '책, 듣다' });
 		});
 		// this.app.use('/api', require('./api').api);
 		// catch 404 and forward to error handler
