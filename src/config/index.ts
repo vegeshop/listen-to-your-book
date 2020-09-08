@@ -18,8 +18,5 @@ export default {
 		'X-NCP-APIGW-API-KEY': <string>process.env.X_NCP_APIGW_API_KEY,
 	},
 
-	naverApiHeader: {
-		'X-Naver-Client-Id': <string>process.env.X_Naver_Client_Id,
-		'X-Naver-Client-Secret': <string>process.env.X_Naver_Client_Secret,
-	},
+	X_OCR_SECRET: <string>process.env.X_OCR_SECRET,
 };

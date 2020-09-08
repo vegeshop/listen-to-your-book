@@ -1,12 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from 'express';
 import ApiError from '../exceptions/ApiError';
 import ErrorCode from '../exceptions/ErrorCode';
-import convertImageToText from '../util/nCSS';
+import convertImageToText from '../util/nOCR';
 import convertTextToVoice from '../util/nCSS';
 
 export async function convertImgToVoice(
 	req: express.Request,
-	res: express.Response
+	res: express.Response,
+	next: express.NextFunction
 ): Promise<void> {
 	const file: Express.Multer.File = req.file;
 	if (!file) {
@@ -16,9 +21,15 @@ export async function convertImgToVoice(
 			'파일을 찾을 수 없습니다'
 		);
 	}
+	const ocrFields = await convertImageToText(file);
+	const text = parseFieldsToText(ocrFields);
+	const voicePath = await convertTextToVoice(text);
 
-	const text: string = await convertImageToText(file);
-	const voice = await convertTextToVoice(text, file.filename);
+	res.render('audio', { path: voicePath });
+}
 
-	res.status(201).send(voice);
+function parseFieldsToText(fields: any): string {
+	const words: string[] = fields.map((obj: any) => obj.inferText);
+	const text = words.join(' ');
+	return text;
 }

@@ -14,7 +14,7 @@ function jpg2jpeg(fileExt: string): string {
 	return fileExt === '.jpg' ? '.jpeg' : fileExt;
 }
 
-export default multer({
+export const saveFileHandler = multer({
 	fileFilter(
 		req: Express.Request,
 		file: Express.Multer.File,
@@ -42,5 +42,26 @@ export default multer({
 			cb(null, filename);
 		},
 	}),
-	limits: { fileSize: 5 * 1024 * 1024, fieldSize: 5 * 1024 * 1024 },
+	limits: { fileSize: 4 * 1024 * 1024, fieldSize: 5 * 1024 * 1024 },
+}).single('img');
+
+export default multer({
+	fileFilter(
+		req: Express.Request,
+		file: Express.Multer.File,
+		callback: multer.FileFilterCallback
+	) {
+		if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
+			return callback(
+				new ApiError(
+					400,
+					ErrorCode.FILETYPE_NOT_SUPPORTED,
+					'Only jpeg or png images allowed'
+				)
+			);
+		}
+		callback(null, true);
+	},
+	storage: multer.memoryStorage(),
+	limits: { fileSize: 4 * 1024 * 1024, fieldSize: 5 * 1024 * 1024 },
 }).single('img');

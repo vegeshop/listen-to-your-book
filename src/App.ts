@@ -32,6 +32,7 @@ export default class App {
 		this.app.set('view engine', 'pug');
 		this.app.use(contextMiddleware);
 		this.app.use(express.static(path.join(__dirname, 'public')));
+		this.app.use(express.static(path.join(__dirname, 'assets')));
 	}
 
 	private middlewares() {
