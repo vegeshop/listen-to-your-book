@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// ncloud Clova Speech Synthesis API - Text to Speech
+// naver OCR API - Image to Text
 import moment from 'moment';
 import logger from '../util/logger';
 import config from '../config';
