@@ -12,17 +12,9 @@ if (!fs.existsSync(logDir)) {
 	fs.mkdirSync(logDir);
 }
 
-const timezoned = () =>
-	moment().tz('Asia/Seoul').format('YYYY-MM-DD HH:mm:ss').trim();
+const timezoned = () => moment().tz('Asia/Seoul').format('YYYY-MM-DD HH:mm:ss').trim();
 
-const logFormat = winston.format.printf(
-	(info) =>
-		`[${info.timestamp}] [${info.level}] ${
-			typeof info.message === 'string'
-				? info.message
-				: JSON.stringify(info.message)
-		}`
-);
+const logFormat = winston.format.printf((info) => `[${info.timestamp}] [${info.level}] ${typeof info.message === 'string' ? info.message : JSON.stringify(info.message)}`);
 
 const infoLogger = new winstonDaily({
 	level: 'info',
@@ -70,14 +62,7 @@ winston.loggers.add('default', {
 		winston.format.timestamp({
 			format: timezoned,
 		}),
-		winston.format.printf(
-			(info) =>
-				`[${info.timestamp}] [${info.level}] ${
-					typeof info.message === 'string'
-						? info.message
-						: JSON.stringify(info.message)
-				}`
-		)
+		winston.format.printf((info) => `[${info.timestamp}] [${info.level}] ${typeof info.message === 'string' ? info.message : JSON.stringify(info.message)}`)
 	),
 });
 

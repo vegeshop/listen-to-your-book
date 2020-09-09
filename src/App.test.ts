@@ -14,9 +14,7 @@ request.Test.prototype.authenticate = function (user) {
 describe('GET /test - a simple api endpoint', () => {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 	it('Test API Request', async () => {
-		const response = await request(App.bootstrap())
-			.get('/test')
-			.expect(200);
+		const response = await request(App.bootstrap()).get('/test').expect(200);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		expect(response.text).toEqual('well functioning');
 	});

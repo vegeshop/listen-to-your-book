@@ -1,6 +1,12 @@
-extends layout
+extends index
 
-block content
-  form(action='convert' method='post' enctype="multipart/form-data")
-    input(type='file' name='img')
-    input(type='submit' value="Let's do this")
+block subcontent
+    <!-- FILE INPUT FORM -->  
+    div.form  
+      form(action='convert' method='post' enctype="multipart/form-data")
+        div.file
+          label(for='imgpicker' )
+          | Choose your photo
+          input#imgpicker(type="file" name= "img" accept="image/png, image/jpeg" capture="environment")
+        div.button
+          input#file_submit(type="submit" value="Let's do this")

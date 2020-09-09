@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1 #{title}
-  p #{title}에 오신 것을 환영합니다.
+  h1.text#title #{title}
+  <!-- Header -->
+  header#header
+    div.logo
+      a(href="#") #{title} 
+        span by INFL.VEGGIE
+
+  <!-- Main -->
+  section#main
+    div.inner
+      <!-- One --> 
+      section#one.wrapper.style1
+        div.image.fit.flush
+          img(src="images/books.jpeg" alt="")
+        header.special
+          h2 이제, 귀로 느끼는 텍스트
+          p 책의 한 페이지를 사진으로 찍어 업로드하면<br>텍스트를 추출해 성우 목소리로 낭독해드립니다
+
+        block subcontent
+        
+        div.content
+          <p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel. Vestibulum et efficitur urna. Duis velit nulla, interdum sed felis sit amet, facilisis auctor nunc. Cras luctus urna at risus feugiat scelerisque nec sed diam. </p>
+          <p>Nunc fringilla metus odio, at rutrum augue tristique vel. Nulla ac tellus a neque ullamcorper porta a vitae ipsum. Morbi est sapien, hendrerit quis mi in, aliquam bibendum orci. Vestibulum imperdiet nibh vitae maximus posuere. Aenean sit amet nibh feugiat, condimentum tellus eu, malesuada nunc. Mauris ac pulvinar turpis, sit amet pharetra est. Ut bibendum justo condimentum, vehicula ex vel, venenatis libero. Etiam vehicula urna sed justo bibendum, ac lacinia nunc pulvinar. Integer nec velit orci. Vestibulum pellentesque varius dapibus. Morbi ullamcorper augue est, sed luctus orci fermentum dictum. Nunc tincidunt, nisl consequat convallis viverra, metus nisl ultricies dui, vitae dapibus ligula urna sit amet nibh. Duis ut venenatis enim.</p>
+

@@ -15,19 +15,9 @@ function jpg2jpeg(fileExt: string): string {
 }
 
 export const saveFileHandler = multer({
-	fileFilter(
-		req: Express.Request,
-		file: Express.Multer.File,
-		callback: multer.FileFilterCallback
-	) {
+	fileFilter(req: Express.Request, file: Express.Multer.File, callback: multer.FileFilterCallback) {
 		if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
-			return callback(
-				new ApiError(
-					400,
-					ErrorCode.FILETYPE_NOT_SUPPORTED,
-					'Only jpeg or png images allowed'
-				)
-			);
+			return callback(new ApiError(400, ErrorCode.FILETYPE_NOT_SUPPORTED, 'Only jpeg or png images allowed'));
 		}
 		callback(null, true);
 	},
@@ -46,19 +36,9 @@ export const saveFileHandler = multer({
 }).single('img');
 
 export default multer({
-	fileFilter(
-		req: Express.Request,
-		file: Express.Multer.File,
-		callback: multer.FileFilterCallback
-	) {
+	fileFilter(req: Express.Request, file: Express.Multer.File, callback: multer.FileFilterCallback) {
 		if (file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
-			return callback(
-				new ApiError(
-					400,
-					ErrorCode.FILETYPE_NOT_SUPPORTED,
-					'Only jpeg or png images allowed'
-				)
-			);
+			return callback(new ApiError(400, ErrorCode.FILETYPE_NOT_SUPPORTED, 'Only jpeg or png images allowed'));
 		}
 		callback(null, true);
 	},

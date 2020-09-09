@@ -19,6 +19,8 @@
 		"sourceType": "module"
 	},
 	"plugins": ["@typescript-eslint"],
-	"rules": {},
+	"rules": {
+		"no-mixed-spaces-and-tabs": ["warn", "smart-tabs"]
+	},
 	"ignorePatterns": ["dist/", "node_modules/"]
 }

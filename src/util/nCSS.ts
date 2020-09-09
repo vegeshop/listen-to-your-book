@@ -25,7 +25,7 @@ export default async function (inputText: string): Promise<string> {
 		},
 	};
 	const filename = `${moment().valueOf()}.mp3`;
-	const filepath = path.join(__dirname, '..', 'assets', 'audios', filename);
+	const filepath = path.join(__dirname, '..', 'public', 'audios', filename);
 
 	ensureDirectoryExistence(filepath);
 	const writeStream = fs.createWriteStream(filepath);
