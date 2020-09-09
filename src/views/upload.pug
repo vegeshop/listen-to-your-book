@@ -6,7 +6,8 @@ block subcontent
       form(action='convert' method='post' enctype="multipart/form-data")
         div.file
           label(for='imgpicker' )
-          | Choose your photo
+          | Choose your photo<br>
           input#imgpicker(type="file" name= "img" accept="image/png, image/jpeg" capture="environment")
+        <br>
         div.button
           input#file_submit(type="submit" value="Let's do this")

@@ -2074,6 +2074,7 @@ button,
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
+	width: 100%;
 }
 
 input[type='submit'].icon,
@@ -2230,10 +2231,15 @@ button.special:active,
 	background-color: #4b924b;
 }
 
+#imgpicker {
+	margin-left: 10%;
+}
+
 /* Form */
 
 form {
 	margin: 0 0 2rem 0;
+	text-align: center;
 }
 
 label {
