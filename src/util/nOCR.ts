@@ -10,12 +10,9 @@ import config from '../config';
 
 const request = require('request-promise-native');
 
-const api_url =
-	'https://056a21188f8a4f9e99f32e7df69bf449.apigw.ntruss.com/custom/v1/3807/679fe5feba6c42fd61a54b3fc64f6bde4fb26022322ac0d3aa09cad410210c8d/general';
-
 export default async function (file: Express.Multer.File): Promise<any> {
 	const options = {
-		url: api_url,
+		url: config.OCR_URL,
 		body: {
 			images: [
 				{

@@ -18,5 +18,6 @@ export default {
 		'X-NCP-APIGW-API-KEY': <string>process.env.X_NCP_APIGW_API_KEY,
 	},
 
+	OCR_URL: <string>process.env.OCR_URL,
 	X_OCR_SECRET: <string>process.env.X_OCR_SECRET,
 };
