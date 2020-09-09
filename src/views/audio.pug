@@ -1,7 +1,11 @@
-extend layout
+extend index
 
-block content
-    h3= path
-    audio(controls)
-        source(src=path type='audio/mpeg')
-        Your browser does not support the audio element.
+block subcontent
+    div.audio-container
+        audio#player(controls)
+            source(src=path type='audio/mpeg')
+            Your browser does not support the audio element.
+    br
+    div.button
+        a.button(href="/")
+            | 다시해보기

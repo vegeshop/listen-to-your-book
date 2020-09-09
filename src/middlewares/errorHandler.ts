@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import ApiError from '../exceptions/ApiError';
 import RequestContext from '../interfaces/RequestContext';
 
-export default function (err: Error, req: Request, res: Response): void {
+export default function (err: Error, req: Request, res: Response, next: NextFunction): void {
 	const context = req.context;
 	if (context instanceof RequestContext) {
 		context.log(err);

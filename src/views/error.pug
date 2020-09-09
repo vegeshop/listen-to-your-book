@@ -1,6 +1,12 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  div.inner
+    section#one.wrapper.style1
+      header.special
+        h2= error.message 
+        h3= error.statusCode
+        pre #{error.stack}
+        div.button
+            a.button(href="/")
+                | 다시해보기

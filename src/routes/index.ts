@@ -6,7 +6,7 @@ import { convertImgToVoice } from './controller';
 export const router = express.Router();
 
 router.get('/', (req: express.Request, res: express.Response) => {
-	res.render('upload', { title: 'Listen to your Book' });
+	res.render('upload');
 });
 
 router.post('/convert', singleFileHandler, safe(convertImgToVoice));

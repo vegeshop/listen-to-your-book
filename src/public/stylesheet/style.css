@@ -2235,6 +2235,14 @@ button.special:active,
 	margin-left: 10%;
 }
 
+.audio-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#player {
+	width: 80%;
+}
 /* Form */
 
 form {
@@ -3269,7 +3277,7 @@ body:after {
 }
 
 .wrapper.style2 header p {
-	color: rgba(255, 255, 255, 0.25);
+	color: rgba(255, 255, 255, 0.35);
 }
 
 @media screen and (max-width: 1280px) {
