@@ -22,7 +22,6 @@ function normalizePort(portStr: string) {
 
 function onListening() {
 	const addr = server.address();
-	const bind =
-		typeof addr === 'string' ? 'pipe ' + addr : `port ${addr!.port}`;
+	const bind = typeof addr === 'string' ? 'pipe ' + addr : `port ${addr!.port}`;
 	logger.info('API Server Listening on ' + bind);
 }
